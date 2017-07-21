@@ -5,46 +5,46 @@
 #include <memory>
 #include <vector>
 
-class Move {
+class MoveClass {
 public: 
-	Move() {
-		std::cout << "Move()" << std::endl;
+	MoveClass() {
+		std::cout << "MoveClass()" << std::endl;
 	}
-	~Move() {
+	~MoveClass() {
 		std::cout << __FUNCTION__ << std::endl;
 	};
-	Move(const Move& copy) {
-		std::cout << "Move(const Move& copy)" << std::endl;
+	MoveClass(const MoveClass& copy) {
+		std::cout << "MoveClass(const MoveClass& copy)" << std::endl;
 	}
-	Move(const Move&& copy) {
-		std::cout << "Move(const Move&& copy)" << std::endl;
+	MoveClass(MoveClass&& copy) noexcept{
+		std::cout << "MoveClass(MoveClass&& copy)" << std::endl;
 	}
 	int m_member;
 };
 
-Move get() {
+MoveClass get() {
 	std::cout << __FUNCTION__ << std::endl;
-	Move el;
+	MoveClass el;
 	return el;
 }
 
-Move getMove() {
+MoveClass getMove() {
 	std::cout << __FUNCTION__ << std::endl;
-	Move el;
+	MoveClass el;
 	return std::move(el);
 }
 
-Move getStraight() {
+MoveClass getStraight() {
 	std::cout << __FUNCTION__ << std::endl;
-	return Move();
+	return MoveClass();
 }
 
-Move getStraightMove() {
+MoveClass getStraightMove() {
 	std::cout << __FUNCTION__ << std::endl;
-	return std::move(Move());
+	return std::move(MoveClass());
 }
 
-using t_vec_move = std::vector<Move>;
+using t_vec_move = std::vector<MoveClass>;
 
 t_vec_move getVector() {
 	std::cout << __FUNCTION__ << std::endl;
